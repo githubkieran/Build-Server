@@ -23,12 +23,6 @@ node {
         }
     }
 
-   stage('build container') {
-       app.inside{
-           sh docker container run --detach --publish 80:80 --name buildserver-image $DOCKERID/buildserver-image:1.0
-}}
-
-
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
